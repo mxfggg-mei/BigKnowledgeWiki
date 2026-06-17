@@ -10,7 +10,7 @@
 - 扎根现实，深入浅出
 - 穿越周期，历久弥坚
 
-<a href="/#/README" class="btn-start">Get Started</a>
+<a href="#/README" class="btn-start">Get Started</a>
 
 <!-- 背景图片 -->
 ![](_media/bg.png)
