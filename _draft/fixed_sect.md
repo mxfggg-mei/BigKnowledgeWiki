@@ -1,16 +1,16 @@
--------------------图片
+﻿-------------------图片
 
 <div align="center">
-  <img src="S4/imgs/111111.png" alt="222222" width="500" />
+  <img src="S4/images/111111.png" alt="222222" width="500" />
   <p style="margin: 5px 0; font-size: 14px; color: #666;">222222</p>
 </div>
 
 <div align="center">
-  <img src="S4/imgs/111111.png" alt="" width="500" />
+  <img src="S4/images/111111.png" alt="" width="500" />
 </div>
 
 <div align="center">
-  <img src="S4/imgs/page1305_img001.png" alt="" width="700" />
+  <img src="S4/images/page1305_img001.png" alt="" width="700" />
 </div>
 
 -------------------分隔符
