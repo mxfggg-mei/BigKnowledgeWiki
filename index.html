@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>硬智慧</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="Description">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<!-- 浏览器图标 -->
+	<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+	<!-- 默认主题 -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+	
+	<!-- 自定义 CSS：二维码样式 -->
+	<style>
+		.qr-code-container {
+			display: none;
+			position: absolute;
+			top: 40px;
+			right: 0;
+			padding: 10px;
+			background: #fff;
+			border: 2px solid #C1F5DE;
+			border-radius: 8px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+			z-index: 9999;
+		}
+		.qr-code-container img {
+			width: 200px;
+			height: 200px;
+			display: block;
+			max-width: none !important;
+			min-width: 150px;
+		}
+		.more-qr {
+			position: relative;
+			cursor: pointer;
+		}
+		.more-qr:hover .qr-code-container {
+			display: block;
+		}
+	</style>
+	<!-- 自定义 CSS：代码段自动换行 -->
+	<style>
+		pre {
+			white-space: pre-wrap !important; /* 核心：自动换行，保留空格 */
+			word-wrap: break-word !important; /* 兼容旧浏览器：长单词拆分换行 */
+			/*font-size: 1.2em !important;*/
+			/*line-height: 1.2 !important;*/
+		}
+	</style>
+	<!-- 自定义 CSS：开始按钮 -->
+	<style>
+		.btn-start {
+			display: inline-block;
+			padding: 10px 20px;
+			background-color: #42B983;
+			color: white !important;
+			text-decoration: none;
+			border-radius: 50px;
+			font-weight: bold;
+			margin-top: 20px;
+			cursor: pointer;
+			box-shadow: 0 2px 8px rgba(66, 185, 131, 0.3);
+		}
+		.btn-start:hover {
+			background-color: #359c6d;
+			color: white !important;
+			transform: scale(1.08);
+			box-shadow: 0 4px 12px rgba(66, 185, 131, 0.4);
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 加载时的动作 -->
+	<div id="app">加载中...</div>
+	<script>
+		window.$docsify = {
+			name: '目录',
+			repo: '',
+			loadSidebar: true,// 侧边栏，默认加载_sidebar.md
+			loadNavbar: true,// 导航栏，默认加载_navbar.md
+			mergeNavbar: true,// 小屏设备下合并导航栏到侧边栏
+            coverpage: true,// 封面，默认加载_coverpage.md
+			onlyCover: false,
+			pagination: {// 分页
+				previousText: 'Previous',
+				nextText: 'Next'
+			},
+            maxLevel: 2,// 最大渲染标题层级
+            subMaxLevel: 2,// 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
+			//logo: '/_media/icon.svg',
+
+			// 搜索
+            search: {
+                maxAge: 86400000,// 过期时间，毫秒，默认一天
+                paths: 'auto',// 注意：仅适用于 paths: 'auto' 模式
+                placeholder: '搜索',
+                noData: '找不到结果',
+                depth: 4,// 搜索标题的最大层级, 1 - 6
+                hideOtherSidebarContent: false,
+                namespace: '/'
+            },
+			// 字数统计
+			count:{
+				countable:true,
+				fontsize:'0.9em',
+				color:'rgb(90,90,90)',
+				language:'chinese'
+			},
+			// 更换默认的 url 百分号编码
+			alias:{
+				'/S2/Middle-aged_Americans': '/S2/美国的中年人.md',
+				'/S2/Gardener_and_Carpenter': '/S2/园丁与木匠.md',
+
+				'/S4/Breaking_Away_from_Whig_History': '/S4/突破辉格史观.md',
+				'/S4/Details_of_the_Boxer_Movement': '/S4/义和团的细节.md',
+				'/S4/Late_Ming_Life_Aesthetics': '/S4/晚明生活美学.md',
+				'/S4/What_Exactly_is_Involution': '/S4/到底什么叫“内卷”.md',
+				'/S4/Suffering_Has_No_Value': '/S4/“苦”没有价值.md',
+				'/S4/Admissions-Minded_Thinking': '/S4/录取侧思维.md',
+				'/S4/Innate_Intelligence_VS_Acquired_Learning': '/S4/原生家庭、天生智商、终身学习：到底都有多大用.md',
+				'/S4/Generalist_Theory': '/S4/通才论.md',
+				'/S4/How_to_Improve_IQ': '/S4/做什么能提高智商.md',
+				'/S4/The_Best_Time_to_Learn_Chess': '/S4/学下棋最好的时间是童年，其次是现在.md',
+				'/S4/The_Scientific_Questions_of_Social_Sciences': '/S4/社会科学的科学问题.md',
+				'/S4/Folk_Philosopher': '/S4/民间哲学家.md',
+				'/S4/Faith_in_Coordination': '/S4/对协调的信仰.md',
+				'/S4/Seriously_Speaking_About_UFO': '/S4/严肃说UFO.md',
+
+				'/S4/The_Principle_and_Skill_of_Reading': '/S4/读书的道与术.md',
+				'/S4/Think_Again': '/S4/重新思考.md',
+				'/S4/Adaptation_under_Fire': '/S4/火线上的适应.md',
+				'/S4/Make_the_World_Understandable': '/S4/让世界讲得通.md',
+				'/S4/The_Psychology_of_Money': '/S4/金钱心理学.md',
+				'/S4/Scientific_Thinker': '/S4/科学思考者.md',
+				'/S4/The_WEIRDest_West': '/S4/西方怪人.md',
+				'/S4/Entrepreneur_in_the_Gray_Area': '/S4/灰色企业家.md',
+				'/S4/Pleasure_of_Thinking': '/S4/思考的乐趣.md'
+			}
+		}
+	</script>
+	<!-- Docsify v4 -->
+	<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+	<!-- emoji表情支持 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+    <!-- 图片放大缩小支持
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script> -->
+    <!-- 搜索功能支持 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- 在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script> -->
+	<!-- 统计中文汉字和英文单词 -->
+	<script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+	<!-- 分页
+	<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script> -->
+</body>
+</html>
